@@ -1,0 +1,1 @@
+ You are soccessfully deployed helm chart of testing nodejs app

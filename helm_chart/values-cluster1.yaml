@@ -1,0 +1,35 @@
+replicaCount: 1
+revisionHistoryLimit: 1
+image:
+  repository: dickoobraz/samplenodejs
+  tag: latest
+  pullPolicy: IfNotPresent 
+  resources:
+    requests:
+      cpu: 200m
+      memory: 300Mi
+  readinessProbe: {}
+  livenessProbe: {}
+service:
+  name: Balancer
+  type: LoadBalancer
+  servicePort: 3000
+hpa:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 21
+  metrics:
+    cpu:
+      targetAverageUtilization: 70
+    memory:
+      targetAverageUtilization: 70
+services:
+base:
+  enabled: false
+  replicaCount: 1
+  image:
+    tag : v0.9.9
+  weight: 100
+istio:
+  enabled: true
+  weight: 100

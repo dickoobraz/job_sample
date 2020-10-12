@@ -1,0 +1,6 @@
+apiVersion: v2
+name: nodejstestapp
+description: A Helm chart for sample nodejs app
+type: application
+version: 0.0.01
+appVersion: release-0.0.01
